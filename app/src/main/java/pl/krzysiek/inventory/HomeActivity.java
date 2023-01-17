@@ -19,31 +19,40 @@ public class HomeActivity extends AppCompatActivity {
 
     // button for logout
     private Button logoutBtn;
+    private Button getProductByBarCodeBtn;
+    private Button listProductBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         logoutBtn = findViewById(R.id.idBtnLogout);
+        getProductByBarCodeBtn = findViewById(R.id.idBtnfindByBarCode);
+        listProductBtn = findViewById(R.id.idBtnAllItem);
+
 
         // initializing our variables
         userNameTV = findViewById(R.id.idTVUserName);
 
         // getting data from intent.
         String name = getIntent().getStringExtra("username");
-        String token = getIntent().getStringExtra("Authorization");
 
         // setting data to our text view.
         userNameTV.setText(name);
 
         // initializing click listener for logout button
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "User Logged Out", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(HomeActivity.this, MainActivity.class);
-                startActivity(i);
-            }
+        logoutBtn.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "User Logged Out", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(HomeActivity.this, MainActivity.class);
+            startActivity(i);
+        });
+
+        getProductByBarCodeBtn.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "get product by bar code", Toast.LENGTH_SHORT).show();
+        });
+
+        listProductBtn.setOnClickListener(v -> {
+            Toast.makeText(HomeActivity.this, "get all product", Toast.LENGTH_SHORT).show();
         });
     }
 }
