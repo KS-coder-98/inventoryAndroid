@@ -1,6 +1,8 @@
 package pl.krzysiek.inventory;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                             i.putExtra("username", userName);
                             String authorization = response.get("Authorization").toString();
                             i.putExtra("Authorization", authorization);
+                            SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("jwt_token", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("token", authorization);
+                            editor.apply();
                             startActivity(i);
 
                         }
