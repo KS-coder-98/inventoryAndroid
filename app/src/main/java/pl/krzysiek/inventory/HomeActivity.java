@@ -52,6 +52,8 @@ public class HomeActivity extends AppCompatActivity {
 
         listProductBtn.setOnClickListener(v -> {
             Toast.makeText(HomeActivity.this, "get all product", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(HomeActivity.this, ListItemActivity.class);
+            startActivity(i);
         });
     }
 }
