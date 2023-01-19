@@ -3,6 +3,8 @@ package pl.krzysiek.inventory;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import pl.krzysiek.inventory.adapter.ItemArrayAdapter;
 import pl.krzysiek.inventory.model.ItemDto;
 
 public class ListItemActivity extends AppCompatActivity {
@@ -45,6 +48,17 @@ public class ListItemActivity extends AppCompatActivity {
 
         backBtn.setOnClickListener(v -> {
             finish();
+        });
+
+        itemList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ItemDto item = (ItemDto) parent.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), "Kliknięto element o ID: " + item.getId(), Toast.LENGTH_SHORT).show();
+                Log.e("q", "klik");
+
+                // wykonaj dalsze operacje
+            }
         });
 
     }
@@ -67,19 +81,17 @@ public class ListItemActivity extends AppCompatActivity {
                         }.getType();
                         JSONArray jsonArray = response.getJSONArray("itemList");
                         List<ItemDto> itemDtoList = gson.fromJson(jsonArray.toString(), listType);
-                        List<String> collect = itemDtoList.stream()
-                                .filter(itemDto -> itemDto.getName() != null)
-                                .map(ItemDto::getName)
-                                .collect(Collectors.toList());
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, collect);
+
+                        ItemArrayAdapter adapter = new ItemArrayAdapter(this, itemDtoList);
                         itemList.setAdapter(adapter);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
                 },
                 error -> {
-                    Toast.makeText(this, "1234", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error - pobieranie danych", Toast.LENGTH_SHORT).show();
                     Log.e("fail with fetch data", error.toString());
                 }
         ) {
