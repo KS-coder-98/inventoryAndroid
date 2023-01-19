@@ -1,5 +1,6 @@
 package pl.krzysiek.inventory;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,8 +57,13 @@ public class ListItemActivity extends AppCompatActivity {
                 ItemDto item = (ItemDto) parent.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(), "Kliknięto element o ID: " + item.getId(), Toast.LENGTH_SHORT).show();
                 Log.e("q", "klik");
+                Intent i = new Intent(ListItemActivity.this, Item.class);
+                i.putExtra("id", item.getId().toString());
+                i.putExtra("name", item.getName());
 
-                // wykonaj dalsze operacje
+
+                startActivity(i);
+
             }
         });
 
@@ -74,7 +80,6 @@ public class ListItemActivity extends AppCompatActivity {
                 null,
                 response -> {
                     System.out.println(response);
-//                    response.get("")
                     try {
                         Gson gson = new Gson();
                         Type listType = new TypeToken<List<ItemDto>>() {

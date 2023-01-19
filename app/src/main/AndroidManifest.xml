@@ -13,9 +13,13 @@
         android:theme="@style/Theme.Inventory"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Item"
+            android:label="@string/title_activity_item"
+            android:theme="@style/Theme.Inventory.NoActionBar"></activity>
+        <activity
             android:name=".ListItemActivity"
             android:label="@string/title_activity_list_item"
-            android:theme="@style/Theme.Inventory.NoActionBar"></activity>
+            android:theme="@style/Theme.Inventory.NoActionBar" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

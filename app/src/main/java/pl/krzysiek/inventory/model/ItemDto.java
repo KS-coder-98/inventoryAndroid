@@ -1,5 +1,8 @@
 package pl.krzysiek.inventory.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
@@ -129,4 +132,6 @@ public class ItemDto {
     public void setBarCodeNumber(String barCodeNumber) {
         this.barCodeNumber = barCodeNumber;
     }
+
+
 }
