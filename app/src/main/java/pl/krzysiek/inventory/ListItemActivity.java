@@ -32,6 +32,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import pl.krzysiek.inventory.adapter.ItemArrayAdapter;
+import pl.krzysiek.inventory.model.FixedAssetClassification;
 import pl.krzysiek.inventory.model.ItemDto;
 
 public class ListItemActivity extends AppCompatActivity {
@@ -60,6 +61,15 @@ public class ListItemActivity extends AppCompatActivity {
                 Intent i = new Intent(ListItemActivity.this, Item.class);
                 i.putExtra("id", item.getId().toString());
                 i.putExtra("name", item.getName());
+                i.putExtra("purchaseDate", item.getPurchaseDate());
+                i.putExtra("purchasePrice", item.getPurchasePrice());
+                i.putExtra("currencyValue", item.getCurrencyValue());
+                i.putExtra("description", item.getDescription());
+                i.putExtra("location", item.getLocation());
+                String s = item.getClassification().toString();
+                FixedAssetClassification fixedAssetClassification = FixedAssetClassification.valueOf(s);
+                i.putExtra("classification", fixedAssetClassification.getDescription());
+                i.putExtra("barCodeNumber", item.getBarCodeNumber());
 
 
                 startActivity(i);

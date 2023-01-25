@@ -40,61 +40,61 @@
             android:id="@+id/textViewProductId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Id produktu" />
 
         <TextView
             android:id="@+id/textViewProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Nazwa Produktu" />
 
         <TextView
             android:id="@+id/textViewPurchaseDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="data zakupu" />
 
         <TextView
             android:id="@+id/textViewPurchasePrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Cena Zakupu" />
 
         <TextView
             android:id="@+id/textViewAmountOfAnnualDepreciation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Amortyzacja roczna" />
 
         <TextView
             android:id="@+id/textViewCurrencyValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Aktualna wartosc" />
 
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Opis" />
 
         <TextView
             android:id="@+id/textViewLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Lokalizacja" />
 
         <TextView
             android:id="@+id/textViewClassification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Klasyfikacja" />
 
         <TextView
             android:id="@+id/textViewBarCodeNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="BarCode" />
 
     </LinearLayout>
 

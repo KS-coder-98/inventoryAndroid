@@ -20,8 +20,8 @@ public enum FixedAssetClassification {
 
     private String description;
 
-    FixedAssetClassification(String grunty) {
-
+    FixedAssetClassification(String description) {
+        this.description = description;
     }
 
     public static Map<String, String> getAll(){
@@ -30,7 +30,7 @@ public enum FixedAssetClassification {
         return result;
     }
 
-    private String getDescription() {
+    public String getDescription() {
         return description;
     }
 }
