@@ -48,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getProductByBarCodeBtn.setOnClickListener(v -> {
             Toast.makeText(HomeActivity.this, "get product by bar code", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(HomeActivity.this, ScannedBarcodeActivity.class);
+            startActivity(i);
         });
 
         listProductBtn.setOnClickListener(v -> {
