@@ -40,61 +40,78 @@
             android:id="@+id/textViewProductId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Id produktu" />
+            android:text="Id produktu"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nazwa Produktu" />
+            android:text="Nazwa Produktu"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewPurchaseDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="data zakupu" />
+            android:text="data zakupu"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewPurchasePrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cena Zakupu" />
+            android:text="Cena Zakupu"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewAmountOfAnnualDepreciation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amortyzacja roczna" />
+            android:text="Amortyzacja roczna"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewCurrencyValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aktualna wartosc" />
+            android:text="Aktualna wartosc"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opis" />
+            android:text="Opis"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lokalizacja" />
+            android:text="Lokalizacja"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewClassification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Klasyfikacja" />
+            android:text="Klasyfikacja"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewBarCodeNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BarCode" />
+            android:text="BarCode"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonAddInventory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="Dokonaj inwentaryzacji" />
 
     </LinearLayout>
 

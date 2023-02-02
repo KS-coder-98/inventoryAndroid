@@ -1,6 +1,7 @@
 package pl.krzysiek.inventory;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -24,7 +26,6 @@ public class Item extends AppCompatActivity {
     private TextView textId;
     private TextView textName;
     private TextView textPurchaseDate;
-    private TextView textFaxNumber;
     private TextView textPurchasePrice;
     private TextView textAmountOfAnnualDepreciation;
     private TextView textCurrencyValue;
@@ -32,6 +33,7 @@ public class Item extends AppCompatActivity {
     private TextView textLocation;
     private TextView textClassification;
     private TextView textBarCodeNumber;
+    private Button btnAddInventory;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -52,6 +54,7 @@ public class Item extends AppCompatActivity {
         textLocation = findViewById(R.id.textViewLocation);
         textClassification = findViewById(R.id.textViewClassification);
         textBarCodeNumber = findViewById(R.id.textViewBarCodeNumber);
+        btnAddInventory = findViewById(R.id.buttonAddInventory);
 
         String id =              "Id przedmiotu:    " + getIntent().getStringExtra("id");
         String name =            "Nazwa przedmiotu: " + getIntent().getStringExtra("name");
@@ -74,11 +77,13 @@ public class Item extends AppCompatActivity {
         textBarCodeNumber.setText(barCodeNumber);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
+        fab.setOnClickListener(view -> finish());
+        btnAddInventory.setOnClickListener(view -> {
+            Intent i = new Intent(Item.this, MakeInventoryActivity.class);
+            i.putExtra("barCodeNumber", getIntent().getStringExtra("barCodeNumber"));
+            i.putExtra("name", getIntent().getStringExtra("name"));
+            i.putExtra("location", getIntent().getStringExtra("location"));
+            startActivity(i);
         });
     }
 
